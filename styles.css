@@ -744,6 +744,19 @@ button, input, select, textarea {
   color: var(--text-muted);
 }
 
+.spotlight__products-img-wrap {
+  text-align: center;
+  margin: 1.5rem 0 1rem;
+}
+
+.spotlight__products-img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: var(--radius-md);
+  object-fit: contain;
+  margin: 0 auto;
+}
+
 .spotlight__cta {
   display: flex;
   justify-content: space-between;
