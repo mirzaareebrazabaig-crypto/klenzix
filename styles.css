@@ -398,9 +398,39 @@ button, input, select, textarea {
    6. HERO SECTION
    -------------------------------------------------------------------------- */
 .hero {
-  background: radial-gradient(circle at 50% 20%, #FFFFFF 0%, var(--bg-light) 100%);
-  padding: 3.5rem 0 2.5rem;
+  background: radial-gradient(ellipse at 50% 0%, rgba(30, 77, 183, 0.06) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 50%, rgba(22, 163, 74, 0.04) 0%, transparent 50%),
+              radial-gradient(circle at 50% 20%, #FFFFFF 0%, var(--bg-light) 100%);
+  padding: 5rem 0 3.5rem;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle decorative circles behind hero */
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+.hero::before {
+  width: 500px;
+  height: 500px;
+  background: var(--primary);
+  top: -200px;
+  right: -150px;
+}
+
+.hero::after {
+  width: 350px;
+  height: 350px;
+  background: var(--accent);
+  bottom: -100px;
+  left: -100px;
 }
 
 .hero__badge {
@@ -408,13 +438,19 @@ button, input, select, textarea {
   align-items: center;
   gap: 0.5rem;
   background: #ECFDF5;
-  border: 1px solid #A7F3D0;
+  border: 1.5px solid #A7F3D0;
   color: #065F46;
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  padding: 0.35rem 0.95rem;
+  padding: 0.45rem 1.1rem;
   border-radius: var(--radius-pill);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .hero__badge-dot {
@@ -424,35 +460,50 @@ button, input, select, textarea {
   border-radius: 50%;
   display: inline-block;
   box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2);
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2); }
+  50% { box-shadow: 0 0 0 7px rgba(22, 163, 74, 0.08); }
 }
 
 .hero__heading {
-  font-size: 2.75rem;
+  font-size: 3.5rem;
   font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
   color: #0F172A;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  animation: fadeInUp 0.7s ease-out 0.15s both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .hero__heading-gradient {
-  background: linear-gradient(120deg, var(--primary) 0%, var(--accent) 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, #3B82F6 40%, var(--accent) 100%);
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
+  animation: gradientShift 4s ease infinite;
 }
 
 .hero__desc {
-  max-width: 680px;
-  margin: 0 auto 1.75rem;
-  font-size: 1.05rem;
+  max-width: 650px;
+  margin: 0 auto 2.25rem;
+  font-size: 1.1rem;
   color: var(--text-muted);
-  line-height: 1.65;
+  line-height: 1.7;
+  animation: fadeInUp 0.7s ease-out 0.3s both;
 }
 
 .hero__desc strong {
   color: var(--text-main);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .hero__ctas {
@@ -461,6 +512,30 @@ button, input, select, textarea {
   gap: 1rem;
   flex-wrap: wrap;
   margin-bottom: 2rem;
+  animation: fadeInUp 0.7s ease-out 0.45s both;
+}
+
+.hero__ctas .btn--primary {
+  padding: 0.85rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(30, 77, 183, 0.3);
+}
+
+.hero__ctas .btn--primary:hover {
+  box-shadow: 0 8px 28px rgba(30, 77, 183, 0.4);
+  transform: translateY(-3px);
+}
+
+.hero__ctas .btn--outline {
+  padding: 0.85rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-width: 2px;
+}
+
+.hero__ctas .btn--outline:hover {
+  transform: translateY(-3px);
 }
 
 /* --------------------------------------------------------------------------
