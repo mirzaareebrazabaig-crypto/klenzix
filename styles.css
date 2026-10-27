@@ -1130,7 +1130,7 @@ button, input, select, textarea {
 .catalogue__img-wrap {
   background: linear-gradient(180deg, #F8FAFF 0%, var(--bg-light) 100%);
   border-radius: 0;
-  padding: 2rem 1.5rem;
+  padding: 0;
   height: 280px;
   display: flex;
   align-items: center;
@@ -1152,15 +1152,17 @@ button, input, select, textarea {
 }
 
 .catalogue__img {
-  max-height: 100%;
-  max-width: 85%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  transform: scale(1.35);
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
 }
 
 .catalogue__card:hover .catalogue__img {
-  transform: scale(1.12) translateY(-4px);
+  transform: scale(1.5);
 }
 
 .catalogue__info {
