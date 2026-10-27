@@ -398,13 +398,40 @@ button, input, select, textarea {
    6. HERO SECTION
    -------------------------------------------------------------------------- */
 .hero {
-  background: radial-gradient(ellipse at 50% 0%, rgba(30, 77, 183, 0.06) 0%, transparent 60%),
-              radial-gradient(ellipse at 80% 50%, rgba(22, 163, 74, 0.04) 0%, transparent 50%),
-              radial-gradient(circle at 50% 20%, #FFFFFF 0%, var(--bg-light) 100%);
-  padding: 5rem 0 3.5rem;
-  text-align: center;
   position: relative;
   overflow: hidden;
+  padding: 5rem 0 3.5rem;
+  text-align: center;
+  min-height: 500px;
+  background: #F4F7FB;
+}
+
+.hero__video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.45) 0%, rgba(244, 247, 251, 0.7) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
 }
 
 /* Subtle decorative circles behind hero */
